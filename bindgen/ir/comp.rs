@@ -1287,7 +1287,7 @@ impl CompInfo {
                 CXCursor_StructDecl | CXCursor_UnionDecl |
                 CXCursor_ClassDecl => !cur.is_definition(),
                 CXCursor_ClassTemplate => {
-                    kind == CompKind::Union && !cur.is_definition()
+                    (kind == CompKind::Union || kind == CompKind::Struct) && !cur.is_definition()
                 }
                 _ => false,
             });
